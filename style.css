@@ -1,0 +1,71 @@
+:root {
+  --bg-color: #f0f2f5;
+  --card-bg: #fff;
+  --primary: #4a90e2;
+  --accent: #50e3c2;
+  --text: #333;
+  --text-light: #777;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg-color);
+  display:flex;justify-content:center;padding:1rem
+}
+#app{width:100%;max-width:400px}
+.join, .lobby, .challenge, .game {
+  background:var(--card-bg);
+  padding:1rem;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom:1rem;
+  text-align:center;
+}
+
+/* nickname entry */
+.nickname-input{width:100%;padding:.6rem;font-size:1rem;margin-bottom:.5rem;border:1px solid #ccc;border-radius:6px}
+.enter-button{width:100%;padding:.6rem;font-size:1rem;background:var(--primary);color:#fff;border:none;border-radius:6px;cursor:pointer}
+
+/* lobby */
+.user-list{list-style:none;margin-top:1rem}
+.user-item{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid #eee}
+.challenge-button{background:var(--accent);border:none;color:#fff;padding:.4rem .8rem;border-radius:6px;cursor:pointer}
+
+/* game board */
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.header .title{font-size:1.4rem;font-weight:600;color:var(--text)}
+.header .symbol{font-size:1.2rem;font-weight:600;color:var(--primary)}
+
+.board-container{background:var(--bg-color);padding:.75rem;border-radius:8px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+
+.cell-button{
+  position:relative;width:100%;padding-top:100%;
+  background:#fff;border:2px solid var(--primary);
+  border-radius:8px;cursor:pointer;touch-action:manipulation;
+  transition:background .2s,transform .1s;
+}
+.cell-button:hover:not(:disabled){background:rgba(74,144,226,0.1)}
+.cell-button:active:not(:disabled){transform:scale(.97)}
+.cell-button:disabled{border-color:#ddd;background:#f9f9f9;cursor:default}
+
+.cell-button span{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-size:2rem;font-weight:600;color:var(--text);
+}
+
+.status{text-align:center;margin:1rem 0;color:var(--text)}
+.reset-button{width:100%;padding:.75rem 0;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
+.reset-button:hover{background:#3bbfa8}
+
+@media(max-width:360px){.cell-button span{font-size:1.5rem}}
+
+/* flashing oldest mark */
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+.cell-button.flashing {
+  animation: flash 1s infinite;
+}
