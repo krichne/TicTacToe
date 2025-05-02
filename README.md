@@ -2,8 +2,6 @@
 
 A lightweight multiplayer Tic-Tac-Toe game built with Node.js, Express, WebSockets, and Vue.js.
 
-![Tic-Tac-Toe Game](https://raw.githubusercontent.com/username/tictactoe-ws/main/screenshot.png)
-
 ## Features
 
 - Real-time multiplayer gameplay with WebSockets
