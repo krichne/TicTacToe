@@ -1,55 +1,97 @@
-Tic-Tac-Toe WebSocket
+# Tic-Tac-Toe WebSocket Multiplayer
 
-This project is a simple real-time Tic-Tac-Toe web application built using Vue.js for the frontend and Node.js with Express and WebSocket (ws) for the backend.
+A lightweight multiplayer Tic-Tac-Toe game built with Node.js, Express, WebSockets, and Vue.js.
 
-Features
+![Tic-Tac-Toe Game](https://raw.githubusercontent.com/username/tictactoe-ws/main/screenshot.png)
 
-Real-time interactive gameplay between multiple users
+## Features
 
-Lobby system to see available players and challenge them
+- Real-time multiplayer gameplay with WebSockets
+- Simple and intuitive user interface
+- Lobby system with online player list
+- Challenge and response mechanism
+- Game state synchronization
+- Responsive design for all devices
 
-User-friendly and responsive design
+## Tech Stack
 
-Technologies
+- **Frontend**: Vue.js 3 with inline templates
+- **Backend**: Node.js, Express
+- **Real-time Communication**: WebSockets (ws library)
+- **Styling**: Clean, minimalist CSS
 
-Frontend: Vue.js, HTML, CSS
+## Installation
 
-Backend: Node.js, Express.js, WebSocket (ws)
+### Prerequisites
 
-Installation
+- Node.js (v12.x or later)
+- npm (v6.x or later)
 
-Prerequisites
+### Setup
 
-Node.js (>=18.x)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/tictactoe-ws.git
+   cd tictactoe-ws
+   ```
 
-npm
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Steps
+3. Start the server:
+   ```bash
+   node server.js
+   ```
 
-Clone the repository:
+4. Open your browser and navigate to:
+   ```
+   http://localhost:3000
+   ```
 
-git clone <your-repository-url>
-cd tic-tac-toe-websocket
+## How to Play
 
-Install dependencies:
+1. **Enter a Nickname**: Start by entering a unique nickname to join the game lobby.
 
-npm install
+2. **Challenge a Player**: In the lobby, you'll see a list of online players. Click the "Challenge" button next to a player's name to invite them to a game.
 
-Run the application:
+3. **Accept/Decline Challenges**: If someone challenges you, you'll receive a notification with options to accept or decline the challenge.
 
-node server.js
+4. **Game Rules**: 
+   - Players take turns placing their symbol (X or O) on the 3x3 grid.
+   - The first player is assigned 'X' and goes first.
+   - The second player is assigned 'O'.
+   - The first player to get three of their symbols in a row (horizontally, vertically, or diagonally) wins.
+   - If all cells are filled without anyone getting three in a row, the game ends in a draw.
 
-Open your browser and navigate to:
+5. **Making Moves**: Click on an empty cell to place your symbol when it's your turn.
 
-http://localhost:3000
+6. **End of Game**: After a game ends, you can choose to play again with the same opponent or return to the lobby.
 
-File Structure
+## Project Structure
 
-index.html - Main HTML file to load the application
+- `index.html` - Minimal HTML file for the app container
+- `style.css` - CSS styles for the game interface
+- `main.js` - Vue.js frontend application with inline templates
+- `server.js` - Node.js backend server with WebSocket implementation
 
-main.js - Vue.js frontend logic
+## Code Organization
 
-server.js - Node.js backend server and WebSocket logic
+### Frontend (main.js)
 
-style.css - Styling for the application
+The frontend uses Vue.js with a component structure:
+- Game stages: nickname entry → lobby → challenge → game
+- WebSocket communication with the backend
+- Game state management
+- Simple, component-based UI
 
+### Backend (server.js)
+
+The server handles:
+- Static file serving
+- WebSocket connections
+- Player management (nicknames and availability)
+- Room creation for matches
+- Game state synchronization
+- Win condition checking
